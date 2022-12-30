@@ -1,3 +1,34 @@
-<html>
-    <h1>OpenAI Image Generator</h1>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Image Generator</title>
+        <link rel="stylesheet" href="css/style.css"/>
+        <script src="js/main.js" defer></script>
+    </head>
+
+    <body>
+        <div>
+            <form id="input-form">
+                <input class="search-input" type="text" placeholder="Eg: Bear on a computer" id="text">
+                <div class="buttons">
+                    <select class="btn" id="size">
+                        <option selected value="small">Small</option>
+                        <option selected value="medium">Medium</option>
+                        <option selected value="large">Large</option>
+                    </select>
+                    <button class="btn" type="submit">Generate</button>
+                </div>
+            </form>
+            <div id="image">
+                <h1>Generated Image</h1>
+                <img src="" id="generatedImage"></img>
+            </div>
+            <div id="warning">
+                <h2>Couldn't Generate Image</h2>
+            </div>
+        </div>
+    </body>
+
 </html>
