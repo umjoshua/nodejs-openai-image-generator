@@ -6,8 +6,16 @@ const onSubmit = (e) => {
     generateImage(prompt, imageSize);
 }
 
+const handleFailure = () => {
+    document.querySelector('#warning').style.display = "contents";
+    document.querySelector('#lds-ring').style.display = "none";
+}
+
 const generateImage = async (prompt, imageSize) => {
-    document.querySelector('#warning').style.display = "none"
+
+    document.querySelector('#warning').style.display = "none";
+    document.querySelector('#lds-ring').style.display = "inline-block";
+
     try {
         const response = await fetch('/openai/generate', {
             method: 'POST',
@@ -21,18 +29,19 @@ const generateImage = async (prompt, imageSize) => {
         });
 
         const data = await response.json();
-        if(data.success==false){
-            document.querySelector('#warning').style.display = "contents";
+        if (data.success == false) {
+            handleFailure;
             return;
         }
-        console.log(data);
         const imageData = data.data;
         console.log(imageData);
-        document.querySelector('#generatedImage').src = imageData;
 
+        document.querySelector('#generatedImage').src = imageData;
+        document.querySelector('#lds-ring').style.display = "none";
         document.querySelector('#image').style.display = "contents"
+
     } catch (error) {
-        document.querySelector('#warning').style.display = "contents"
+        handleFailure;
     }
 }
 
