@@ -14,6 +14,7 @@ const handleFailure = () => {
 const generateImage = async (prompt, imageSize) => {
 
     document.querySelector('#warning').style.display = "none";
+    document.querySelector('#image').style.display = "none";
     document.querySelector('#lds-ring').style.display = "inline-block";
 
     try {
@@ -38,8 +39,7 @@ const generateImage = async (prompt, imageSize) => {
 
         document.querySelector('#generatedImage').src = imageData;
         document.querySelector('#lds-ring').style.display = "none";
-        document.querySelector('#image').style.display = "contents"
-
+        document.querySelector('#image').style.display = "contents";
     } catch (error) {
         handleFailure;
     }
