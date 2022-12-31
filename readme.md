@@ -18,10 +18,7 @@ OPEN_AI_API_KEY = "your key"
 ```
 3. Run
 ```sh
-npm install
+$ npm install
+$ npm start
 ```
-4. Run
-```sh
-npm start
-```
-5. Application will be running at localhost:5000
+4. Application will be running at localhost:5000
