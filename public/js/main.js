@@ -16,6 +16,7 @@ const generateImage = async (prompt, imageSize) => {
     document.querySelector('#warning').style.display = "none";
     document.querySelector('#image').style.display = "none";
     document.querySelector('#lds-ring').style.display = "inline-block";
+    document.querySelector('#generatedImage').src = "";
 
     try {
         const response = await fetch('/openai/generate', {
